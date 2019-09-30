@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+
+<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+	<!-- BEGIN CSS -->
+	<style>
+		/* TODO 1 */
+		.box {
+			width: 95px;
+			height: 70px;
+			background-color: purple;
+			font-size: 250%;
+			text-align: center;
+			display: block;
+			position: absolute;
+			top: 300px;
+			left: 500px;
+		}
+	</style>
+
+</head>
+<body class="board">
+	<!-- HTML for the box -->
+	<div class="box">box</div>
+
+	<!-- BEGIN JAVASCRIPT -->
+	<script>
+		(function(){
+			'use strict';
+			/* global jQuery */
+
+			// jQuery stuff setup for you
+			var box = jQuery('.box');
+			var boardWidth = jQuery('.board').width();
+	
+			// TODO 2 - Variable declarations 
+var position = 0;
+var points = 0;
+var speed = 10;
+var direction = 1;
+
+box.css('left', position);      // moves the box to the x-coordinate of <position> 
+box.text(points);               // changes the text of the box to display the value of <points>
+			
+			function update() {
+				// TODO 3 / 6 / 7 / 8
+				position += speed;    // increment position by speed on every update
+ console.log("new position: " + position);
+ box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+			}
+
+
+			
+			function handleBoxClick() {
+				// TODO 4 / 5
+				
+			}
+
+
+			//this executes the update function code every 50 milliseconds
+			setInterval(update, 50);
+			// this executes the handleBoxClick function code every time the box is clicked on
+			box.on('click', handleBoxClick)() {
+			points += 1;          // increase the point total
+            box.text(points);      // update the new points total displayed by the box
+            position = 0;         // reset the position of the box to 0
+            speed += 3;    // increase the speed of the box on every click
+        }
+	</script>
+</body>
+</html>
